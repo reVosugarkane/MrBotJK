@@ -25,6 +25,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 // cl_parse.c  -- parse a message received from the server
 
 #include "client.h"
+#include "cl_bridge.h"
 #include "cl_cgameapi.h"
 #include "qcommon/stringed_ingame.h"
 
@@ -354,6 +355,8 @@ void CL_ParseSnapshot( msg_t *msg ) {
 	}
 
 	cl.newSnapshots = qtrue;
+
+	CLBridge_OnSnapshot();
 }
 
 

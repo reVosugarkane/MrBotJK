@@ -24,6 +24,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 // cl.input.c  -- builds an intended movement command to send to the server
 
 #include "client.h"
+#include "cl_bridge.h"
 #include "cl_cgameapi.h"
 #include "cl_uiapi.h"
 #ifndef _WIN32
@@ -1371,6 +1372,8 @@ usercmd_t CL_CreateCmd( void ) {
 			SCR_DebugGraph( abs(cl.viewangles[PITCH] - oldAngles[PITCH]), 0 );
 		}
 	}
+
+	CLBridge_ModifyCmd( &cmd );
 
 	return cmd;
 }

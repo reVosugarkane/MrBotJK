@@ -25,6 +25,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 // cl_main.c  -- client main loop
 
 #include "client.h"
+#include "cl_bridge.h"
 
 #include <limits.h>
 #include "ghoul2/G2.h"
@@ -2734,6 +2735,7 @@ void CL_Init( void ) {
 	cls.realtime = 0;
 
 	CL_InitInput ();
+	CLBridge_Init();
 
 	//
 	// register our variables
@@ -2926,6 +2928,8 @@ void CL_Shutdown( void ) {
 		return;
 	}
 	recursive = qtrue;
+
+	CLBridge_Shutdown();
 
 	if (G2VertSpaceClient)
 	{

@@ -425,6 +425,8 @@ if(BuildMPEngine)
 
 	set(MPEngineClientFiles
 		"${MPDir}/client/cl_avi.cpp"
+		"${MPDir}/client/cl_bridge.cpp"
+		"${MPDir}/client/cl_bridge.h"
 		"${MPDir}/client/cl_cgame.cpp"
 		"${MPDir}/client/cl_cgameapi.cpp"
 		"${MPDir}/client/cl_cgameapi.h"

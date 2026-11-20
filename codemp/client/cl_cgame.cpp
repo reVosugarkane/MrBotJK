@@ -23,6 +23,7 @@ along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 // cl_cgame.c  -- client system interaction with client game
 #include "client.h"
+#include "cl_bridge.h"
 #include "cl_cgameapi.h"
 #include "botlib/botlib.h"
 #include "FXExport.h"
@@ -407,6 +408,7 @@ qboolean CL_GetServerCommand( int serverCommandNumber ) {
 	clc.lastExecutedServerCommand = serverCommandNumber;
 
 	Com_DPrintf( "serverCommand: %i : %s\n", serverCommandNumber, s );
+	CLBridge_OnServerCommand( s );
 
 rescan:
 	Cmd_TokenizeString( s );
